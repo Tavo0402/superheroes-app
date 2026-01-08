@@ -1,0 +1,27 @@
+<div class="card shadow-sm h-100">
+  <img
+    [src]="apiUrl + superhero.imageUrl"
+    class="img-fluid rounded shadow"
+    [alt]="superhero.name"
+    height="225"
+  />
+
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ superhero.name }}</h5>
+
+    <p class="card-text">
+      {{ superhero.biography.fullName }}
+    </p>
+
+    <small class="text-muted mb-3">
+      {{ superhero.biography.publisher }}
+    </small>
+
+    <div class="mt-auto d-flex justify-content-between">
+      <button class="btn btn-sm btn-outline-primary" [routerLink]="[superhero.id]">View</button>
+      <button class="btn btn-sm btn-outline-secondary" [routerLink]="[superhero.id, 'edit']">
+        Edit
+      </button>
+    </div>
+  </div>
+</div>

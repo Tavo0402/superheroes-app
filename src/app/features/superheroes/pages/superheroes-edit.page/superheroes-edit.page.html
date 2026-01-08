@@ -1,0 +1,197 @@
+<div class="container py-2">
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <h2 class="mb-0">✏️ Edit Superhero</h2>
+    <img
+      [src]="apiUrl + form.get('imageUrl')?.value"
+      alt="Hero"
+      class="hero-image"
+      *ngIf="form.get('imageUrl')?.value"
+    />
+  </div>
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border"></div>
+  </div>
+  <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="submit()">
+    <!-- BASIC -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input
+          class="form-control"
+          placeholder="Name"
+          formControlName="name"
+          [class.is-invalid]="form.get('name')?.touched && form.get('name')?.invalid"
+        />
+        <div class="invalid-feedback">Name is required</div>
+      </div>
+      <div class="col-md-6">
+        <input
+          class="form-control"
+          placeholder="Image URL"
+          formControlName="imageUrl"
+          [class.is-invalid]="form.get('imageUrl')?.touched && form.get('imageUrl')?.invalid"
+        />
+        <div class="invalid-feedback">Valid image URL is required</div>
+      </div>
+    </div>
+
+    <!-- POWERSTATS -->
+    <h5>Powerstats</h5>
+    <div class="row mb-3" formGroupName="powerstats">
+      <div
+        class="col-6 col-md-4 col-lg-2"
+        *ngFor="let stat of ['intelligence', 'strength', 'speed', 'durability', 'power', 'combat']"
+      >
+        <input
+          class="form-control"
+          [placeholder]="stat"
+          [formControlName]="stat"
+          [class.is-invalid]="
+            form.get('powerstats.' + stat)?.touched && form.get('powerstats.' + stat)?.invalid
+          "
+        />
+        <div class="invalid-feedback">Value must be between 0 and 100</div>
+      </div>
+    </div>
+
+    <!-- BIOGRAPHY -->
+    <h5>Biography</h5>
+    <div class="row mb-3" formGroupName="biography">
+      <div class="col-md-6">
+        <input class="form-control mb-2" placeholder="Full Name" formControlName="fullName" />
+      </div>
+      <div class="col-md-6">
+        <input class="form-control mb-2" placeholder="Alter Egos" formControlName="alterEgos" />
+      </div>
+
+      <div class="col-md-12">
+        <input
+          class="form-control mb-2"
+          placeholder="Aliases (comma separated)"
+          formControlName="aliases"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <input
+          class="form-control mb-2"
+          placeholder="Place of Birth"
+          formControlName="placeOfBirth"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <input
+          class="form-control mb-2"
+          placeholder="First Appearance"
+          formControlName="firstAppearance"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <input class="form-control mb-2" placeholder="Publisher" formControlName="publisher" />
+      </div>
+    </div>
+
+    <!-- APPEARANCE -->
+    <h5>Appearance</h5>
+    <div class="row mb-3" formGroupName="appearance">
+      <div class="col-md-3">
+        <label class="form-label">Gender</label>
+        <select
+          class="form-select"
+          formControlName="gender"
+          [class.is-invalid]="
+            form.get('appearance.gender')?.touched && form.get('appearance.gender')?.invalid
+          "
+        >
+          <option value="">Select</option>
+          <option *ngFor="let g of metadata.genders" [value]="g">{{ g }}</option>
+        </select>
+        <div class="invalid-feedback">Gender is required</div>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Race</label>
+        <select
+          class="form-select"
+          formControlName="race"
+          [class.is-invalid]="
+            form.get('appearance.race')?.touched && form.get('appearance.race')?.invalid
+          "
+        >
+          <option value="">Select</option>
+          <option *ngFor="let r of metadata.races" [value]="r">{{ r }}</option>
+        </select>
+        <div class="invalid-feedback">Race is required</div>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Eye Color</label>
+        <select
+          class="form-select"
+          formControlName="eyeColor"
+          [class.is-invalid]="
+            form.get('appearance.eyeColor')?.touched && form.get('appearance.eyeColor')?.invalid
+          "
+        >
+          <option value="">Select</option>
+          <option *ngFor="let e of metadata.eyeColors" [value]="e">{{ e }}</option>
+        </select>
+        <div class="invalid-feedback">Eye Color is required</div>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Hair Color</label>
+        <select
+          class="form-select"
+          formControlName="hairColor"
+          [class.is-invalid]="
+            form.get('appearance.hairColor')?.touched && form.get('appearance.hairColor')?.invalid
+          "
+        >
+          <option value="">Select</option>
+          <option *ngFor="let h of metadata.hairColors" [value]="h">{{ h }}</option>
+        </select>
+        <div class="invalid-feedback">Hair Color is required</div>
+      </div>
+
+      <div class="col-md-6 mt-2">
+        <input
+          class="form-control"
+          placeholder="Height (e.g 5'3, 160 cm)"
+          formControlName="height"
+        />
+      </div>
+
+      <div class="col-md-6 mt-2">
+        <input
+          class="form-control"
+          placeholder="Weight (e.g 300 lb, 136 kg)"
+          formControlName="weight"
+        />
+      </div>
+    </div>
+
+    <!-- WORK + CONNECTIONS -->
+    <div class="row mb-3">
+      <div class="col-md-6" formGroupName="work">
+        <h5>Work</h5>
+        <input class="form-control mb-2" placeholder="Occupation" formControlName="occupation" />
+        <input class="form-control" placeholder="Base" formControlName="base" />
+      </div>
+
+      <div class="col-md-6" formGroupName="connections">
+        <h5>Connections</h5>
+        <input class="form-control mb-2" placeholder="Group" formControlName="groupAffiliation" />
+        <input class="form-control" placeholder="Relatives" formControlName="relatives" />
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="mt-4 d-flex gap-2 justify-content-end">
+      <button class="btn btn-primary" type="submit">Update</button>
+      <button class="btn btn-danger" type="button" (click)="deleteSuperhero()">Delete</button>
+      <a class="btn btn-outline-secondary" [routerLink]="['/superheroes']">Cancel</a>
+    </div>
+  </form>
+</div>

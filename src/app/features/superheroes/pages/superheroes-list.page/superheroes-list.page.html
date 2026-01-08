@@ -1,0 +1,8 @@
+<app-loading-spinner *ngIf="loading"></app-loading-spinner>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div *ngFor="let superhero of superheroes">
+    <div class="col">
+      <app-superhero-card [superhero]="superhero" />
+    </div>
+  </div>
+</div>

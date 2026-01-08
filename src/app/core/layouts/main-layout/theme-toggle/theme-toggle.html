@@ -1,0 +1,48 @@
+<div ngbDropdown class="dropdown position-fixed bottom-0 end-0 mb-3 me-3">
+  <button
+    class="btn btn-bd-primary py-2 d-flex align-items-center btn-theme-toggle"
+    ngbDropdownToggle
+    aria-label="Toggle theme"
+  >
+    <i class="bi {{ icon() }} fs-5"></i>
+    <span class="visually-hidden">Toggle theme</span>
+  </button>
+
+  <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-end shadow">
+    <li>
+      <button
+        class="dropdown-item d-flex align-items-center"
+        [class.active]="currentTheme() === 'light'"
+        (click)="setTheme('light')"
+      >
+        <i class="bi bi-sun-fill me-2"></i>
+        Light
+        <i class="bi bi-check2 ms-auto" *ngIf="currentTheme() === 'light'"></i>
+      </button>
+    </li>
+
+    <li>
+      <button
+        class="dropdown-item d-flex align-items-center"
+        [class.active]="currentTheme() === 'dark'"
+        (click)="setTheme('dark')"
+      >
+        <i class="bi bi-moon-stars-fill me-2"></i>
+        Dark
+        <i class="bi bi-check2 ms-auto" *ngIf="currentTheme() === 'dark'"></i>
+      </button>
+    </li>
+
+    <li>
+      <button
+        class="dropdown-item d-flex align-items-center"
+        [class.active]="currentTheme() === 'auto'"
+        (click)="setTheme('auto')"
+      >
+        <i class="bi bi-circle-half me-2"></i>
+        Auto
+        <i class="bi bi-check2 ms-auto" *ngIf="currentTheme() === 'auto'"></i>
+      </button>
+    </li>
+  </ul>
+</div>

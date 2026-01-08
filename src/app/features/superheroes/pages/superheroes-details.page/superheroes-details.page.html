@@ -1,0 +1,68 @@
+<div *ngIf="loading" class="text-center py-5">
+  <div class="spinner-border"></div>
+</div>
+
+<div *ngIf="superhero as hero" class="container py-1 superhero-details">
+  <div class="row g-4">
+    <div class="col-md-4 text-center">
+      <img
+        [src]="apiUrl + superhero.imageUrl"
+        [alt]="hero.name"
+        class="img-fluid rounded shadow superhero-img"
+      />
+    </div>
+
+    <div class="col-md-8">
+      <h1 class="mb-3">{{ hero.name }}</h1>
+
+      <section class="mb-4">
+        <h5 class="border-bottom pb-2">Biography</h5>
+        <p><strong>Full Name:</strong> {{ hero.biography.fullName }}</p>
+        <p><strong>Publisher:</strong> {{ hero.biography.publisher }}</p>
+        <p><strong>Alignment:</strong> {{ hero.biography.alignment }}</p>
+        <p><strong>First Appearance:</strong> {{ hero.biography.firstAppearance }}</p>
+      </section>
+
+      <section class="mb-4">
+        <h5 class="border-bottom pb-2">Powerstats</h5>
+        <div class="row">
+          <div class="col-6 col-md-4" *ngFor="let stat of hero.powerstats | keyvalue">
+            <strong>{{ stat.key | titlecase }}:</strong> {{ stat.value }}
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-2">
+        <h5 class="border-bottom pb-2">Appearance</h5>
+        <p><strong>Gender:</strong> {{ hero.appearance.gender }}</p>
+        <p><strong>Race:</strong> {{ hero.appearance.race }}</p>
+        <p><strong>Height:</strong> {{ hero.appearance.height[1] }}</p>
+        <p><strong>Weight:</strong> {{ hero.appearance.weight[1] }}</p>
+        <p><strong>Eye Color:</strong> {{ hero.appearance.eyeColor }}</p>
+        <p><strong>Hair Color:</strong> {{ hero.appearance.hairColor }}</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <section>
+        <h5 class="border-bottom pb-2">Work</h5>
+        <p><strong>Occupation:</strong> {{ hero.work.occupation }}</p>
+        <p><strong>Base:</strong> {{ hero.work.base }}</p>
+      </section>
+    </div>
+
+    <div class="col-md-6">
+      <section>
+        <h5 class="border-bottom pb-2">Connections</h5>
+        <p><strong>Group:</strong> {{ hero.connections.groupAffiliation }}</p>
+        <p><strong>Relatives:</strong> {{ hero.connections.relatives }}</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <a [routerLink]="['/superheroes']" class="btn btn-outline-secondary"> ← Back to list </a>
+  </div>
+</div>

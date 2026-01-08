@@ -1,0 +1,12 @@
+.superhero-img {
+  width: 100%;
+  height: 650px; /* tamaño fijo */
+  object-fit: cover; /* evita deformación */
+}
+
+.back-button {
+  position: sticky;
+  top: 1rem;
+  z-index: 1000;
+  margin-bottom: 1rem;
+}

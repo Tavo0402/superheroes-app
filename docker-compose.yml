@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'Password123!'
+    ports:
+      - '1434:1433'
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  api:
+    image: superheroes-api
+    container_name: superheroes-api
+    depends_on:
+      - sqlserver
+    ports:
+      - '5009:5009'
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: 'Server=sqlserver;Database=${DB_NAME};User Id=sa;Password=Password123!;TrustServerCertificate=True;'
+
+  web:
+    image: superheroes-app
+    container_name: superheroes-app
+    depends_on:
+      - api
+    ports:
+      - '3000:80'
+
+volumes:
+  sql_data:

@@ -1,0 +1,113 @@
+[
+  {
+    "Name": "Aquaman",
+    "Powerstats": {
+      "Intelligence": "81",
+      "Strength": "85",
+      "Speed": "79",
+      "Durability": "80",
+      "Power": "65",
+      "Combat": "80"
+    },
+    "Biography": {
+      "FullName": "Arthur Curry",
+      "AlterEgos": "No alter egos found.",
+      "Aliases": ["King of Atlantis"],
+      "PlaceOfBirth": "Atlantis",
+      "FirstAppearance": "More Fun Comics #73",
+      "Publisher": "DC Comics",
+      "Alignment": "good"
+    },
+    "Appearance": {
+      "Gender": "Male",
+      "Race": "Atlantean",
+      "Height": ["6'1", "185 cm"],
+      "Weight": ["235 lb", "107 kg"],
+      "EyeColor": "blue",
+      "HairColor": "blonde"
+    },
+    "Work": {
+      "Occupation": "King of Atlantis",
+      "Base": "Atlantis"
+    },
+    "Connections": {
+      "GroupAffiliation": "Justice League",
+      "Relatives": "Tom Curry (father), Atlanna (mother)"
+    },
+    "ImageUrl": "/images/superheroes/aquaman.jpg"
+  },
+  {
+    "Name": "Scarlet Witch",
+    "Powerstats": {
+      "Intelligence": "88",
+      "Strength": "10",
+      "Speed": "29",
+      "Durability": "70",
+      "Power": "100",
+      "Combat": "80"
+    },
+    "Biography": {
+      "FullName": "Wanda Maximoff",
+      "AlterEgos": "No alter egos found.",
+      "Aliases": ["Wanda", "The Hex Witch"],
+      "PlaceOfBirth": "Sokovia",
+      "FirstAppearance": "X-Men #4",
+      "Publisher": "Marvel Comics",
+      "Alignment": "good"
+    },
+    "Appearance": {
+      "Gender": "Female",
+      "Race": "Human",
+      "Height": ["5'7", "170 cm"],
+      "Weight": ["130 lb", "59 kg"],
+      "EyeColor": "green",
+      "HairColor": "auburn"
+    },
+    "Work": {
+      "Occupation": "Avenger",
+      "Base": "Mobile"
+    },
+    "Connections": {
+      "GroupAffiliation": "Avengers",
+      "Relatives": "Pietro Maximoff (brother)"
+    },
+    "ImageUrl": "/images/superheroes/scarlet_witch.jpg"
+  },
+  {
+    "Name": "Wolverine",
+    "Powerstats": {
+      "Intelligence": "63",
+      "Strength": "32",
+      "Speed": "38",
+      "Durability": "100",
+      "Power": "89",
+      "Combat": "100"
+    },
+    "Biography": {
+      "FullName": "James Howlett",
+      "AlterEgos": "Logan",
+      "Aliases": ["Logan", "Weapon X"],
+      "PlaceOfBirth": "Alberta, Canada",
+      "FirstAppearance": "Incredible Hulk #180",
+      "Publisher": "Marvel Comics",
+      "Alignment": "good"
+    },
+    "Appearance": {
+      "Gender": "Male",
+      "Race": "Mutant",
+      "Height": ["5'3", "160 cm"],
+      "Weight": ["300 lb", "136 kg"],
+      "EyeColor": "blue",
+      "HairColor": "black"
+    },
+    "Work": {
+      "Occupation": "Soldier, Adventurer",
+      "Base": "X-Mansion"
+    },
+    "Connections": {
+      "GroupAffiliation": "X-Men",
+      "Relatives": "No known relatives"
+    },
+    "ImageUrl": "/images/superheroes/wolverine.jpg"
+  }
+]
