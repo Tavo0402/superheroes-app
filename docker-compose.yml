@@ -21,7 +21,7 @@ services:
       - '5009:5009'
     environment:
       ASPNETCORE_ENVIRONMENT: Production
-      ConnectionStrings__DefaultConnection: 'Server=sqlserver;Database=${DB_NAME};User Id=sa;Password=Password123!;TrustServerCertificate=True;'
+      ConnectionStrings__DefaultConnection: 'Server=sqlserver;Database=superheroes;User Id=sa;Password=Password123!;TrustServerCertificate=True;'
 
   web:
     image: superheroes-app
